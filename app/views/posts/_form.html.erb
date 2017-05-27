@@ -1,6 +1,21 @@
 <%= simple_form_for @post do |f| %>
   <%= f.input :title, input_html: { class: "input-lg" } %>
-  <%= f.association :tags, as: :check_boxes %>
+  <%#= f.association :tags, as: :check_boxes %>
+
+  <div class="collection-check-boxes">
+    <%= f.collection_check_boxes :tag_ids, Tag.all, :id, :name do |input| %>
+      <label>
+        <%= input.check_box %>
+        <div class="check-box">
+          <i class="fa fa-check-square-o checked" aria-hidden="true"></i>
+          <i class="fa fa-square-o unchecked" aria-hidden="true"></i>
+          <%= input.text %>
+        </div>
+      </label>
+      <%# use input.object if you want to access the tag instance %>
+    <% end %>
+  </div>
+
   <%= f.input :content, input_html: { rows: 10 } %>
   <%= f.button :submit, class: "btn btn-primary btn-block"  %>
 <% end %>

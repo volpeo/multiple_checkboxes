@@ -1,0 +1,30 @@
+.collection-check-boxes {
+  display: flex;
+  flex: 0 0 30%;
+  flex-wrap: wrap;
+
+  input, .checked  {
+    display: none;
+  }
+  label {
+    cursor: pointer;
+  }
+  .check-box {
+    background: #CCC;
+    border-radius: 3px;
+    padding: 6px 10px;
+    color: white;
+    margin: 5px;
+    font-weight: normal;
+  }
+
+  input:checked + .check-box .checked {
+    display: inline;
+  }
+  input:checked + .check-box .unchecked {
+    display: none;
+  }
+  input:checked + .check-box {
+    background: $green;
+  }
+}
